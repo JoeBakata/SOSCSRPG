@@ -18,8 +18,8 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Menu" Grid.ColumnSpan= "2" Background="AliceBlue"></Label>
-        <Label Grid.Row="1" Grid.Column="0" Content="Player Data" Background="Aquamarine"></Label>
+        <Label Grid.Row="0" Grid.Column="0" Content="Menu" Grid.ColumnSpan= "2" Background="AliceBlue"/> <!--This is a self closing tag-->
+        <Label Grid.Row="1" Grid.Column="0" Content="Player Data" Background="Aquamarine"></Label> <!-- This is how you normally close the tag-->
         <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="Beige"></Label>
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="BurlyWood"></Label>
         <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="Lavender"></Label>
