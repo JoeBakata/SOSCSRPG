@@ -8,69 +8,69 @@ namespace Engine.Models
     {
         #region Properties
 
-        private string _name;
-        private string _characterClass;
-        private int _hitPoints;
-        private int _experiencePoints;
-        private int _level;
-        private int _gold;
+        private string name;
+        private string characterClass;
+        private int hitPoints;
+        private int experiencePoints;
+        private int level;
+        private int gold;
 
         public string Name
         {
-            get { return _name; }
+            get { return name; }
             set
             {
-                _name = value;
+                name = value;
                 OnPropertyChanged(nameof(Name));
             }
         }
 
         public string CharacterClass
         {
-            get { return _characterClass; }
+            get { return characterClass; }
             set
             {
-                _characterClass = value;
+                characterClass = value;
                 OnPropertyChanged(nameof(CharacterClass));
             }
         }
 
         public int HitPoints
         {
-            get { return _hitPoints; }
+            get { return hitPoints; }
             set
             {
-                _hitPoints = value;
+                hitPoints = value;
                 OnPropertyChanged(nameof(HitPoints));
             }
         }
 
         public int ExperiencePoints
         {
-            get { return _experiencePoints; }
+            get { return experiencePoints; }
             set
             {
-                _experiencePoints = value;
+                experiencePoints = value;
                 OnPropertyChanged(nameof(ExperiencePoints));
             }
         }
 
         public int Level
         {
-            get { return _level; }
+            get { return level; }
             set
             {
-                _level = value;
+                level = value;
                 OnPropertyChanged(nameof(Level));
             }
         }
 
         public int Gold
         {
-            get { return _gold; }
+            get { return gold; }
             set
             {
-                _gold = value;
+                gold = value;
                 OnPropertyChanged(nameof(Gold));
             }
         }
