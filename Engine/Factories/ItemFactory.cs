@@ -28,9 +28,9 @@ namespace Engine.Factories
 
             if(standardItem != null)
             {
-                if (standardItem is Weapon)
+                if (standardItem is Weapon)// Create weapon object
                 {
-                    return (standardItem as Weapon).Clone();
+                    return (standardItem as Weapon).Clone();// If the standardItem’s datatype is Weapon, we will cast it as a Weapon object. Then call its Clone function from the Weapon class(Weapon.cs)
                 }
                 return standardItem.Clone();
             }

@@ -12,7 +12,7 @@ namespace Engine.Factories
                 case 1:
                     Monster snake =
                         new Monster("Snake", "Snake.png", 4, 4, 1, 2, 5, 1);// change to pass values for these parameters(min&max Damage) when we instantiate a Monster object
-
+                    // maximumHitPoints, hitPoints, minimumDamage,maximumDamage, rewardExperiencePoints, rewardGold
                     AddLootItem(snake, 9001, 25);
                     AddLootItem(snake, 9002, 75);
 
@@ -21,7 +21,7 @@ namespace Engine.Factories
                 case 2:
                     Monster rat =
                         new Monster("Rat", "Rat.png", 5, 5, 1, 2, 5, 1);// change to pass values for these parameters(min&max Damage) when we instantiate a Monster object
-
+                    // maximumHitPoints, hitPoints, minimumDamage,maximumDamage, rewardExperiencePoints, rewardGold
                     AddLootItem(rat, 9003, 25);
                     AddLootItem(rat, 9004, 75);
 
@@ -30,7 +30,7 @@ namespace Engine.Factories
                 case 3:
                     Monster giantSpider =
                         new Monster("Giant Spider", "GiantSPider.png", 10, 10, 1, 4, 10, 3);// change to pass values for these parameters(min&max Damage) when we instantiate a Monster object
-
+                    // maximumHitPoints, hitPoints, minimumDamage,maximumDamage, rewardExperiencePoints, rewardGold
                     AddLootItem(giantSpider, 9005, 25);
                     AddLootItem(giantSpider, 9006, 75);
 

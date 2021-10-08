@@ -11,11 +11,15 @@ namespace WPFUI
     public partial class MainWindow : Window
     {
         private GameSession gameSession; // Declare a private variable
+        
         public MainWindow()
         {
             InitializeComponent();
+            
             gameSession = new GameSession();
+            
             gameSession.OnMessageRaised += OnGameMessageRaised;
+            
             DataContext = gameSession;
         }
 
@@ -39,6 +43,10 @@ namespace WPFUI
             gameSession.MoveWest();
         }
 
+        private void OnClick_AttackMonster(object sender, RoutedEventArgs e)// Lines46 through 49, a new function to attack the monster (OnClick_AttackMonster)
+        {
+            gameSession.AttackCurrentMonster();// Calls the AttackCurrentMonster function we will create next in the GameSession class(GameSession.cs)
+        }
         private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
         {
             GameMessages.Document.Blocks.Add(new Paragraph(new Run(e.Message)));

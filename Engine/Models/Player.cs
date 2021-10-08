@@ -77,7 +77,7 @@ namespace Engine.Models
 
         public ObservableCollection<GameItem> Inventory { get; set; }
 
-        public List<GameItem> Weapons =>
+        public List<GameItem> Weapons =>// Select a weapon to fight with
             Inventory.Where(i => i is Weapon).ToList();
 
         public ObservableCollection<QuestStatus> Quests { get; set; }
@@ -90,7 +90,7 @@ namespace Engine.Models
             Quests = new ObservableCollection<QuestStatus>();
         }
 
-        public void AddItemToInventory(GameItem item)
+        public void AddItemToInventory(GameItem item)// Let the game know that the weapons list has changed
         {
             Inventory.Add(item);
 

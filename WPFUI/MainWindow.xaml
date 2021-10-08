@@ -28,7 +28,7 @@
         <!-- Menu -->
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="AliceBlue"/>
 
-        <!-- Player stats -->
+        <!-- Player Stats -->
         <Grid Grid.Row="1" Grid.Column="0" Background="Aquamarine">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -57,7 +57,7 @@
             <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Level:"/>
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
-        </Grid>
+        </Grid> <!-- end Player Stats -->
 
         <!-- Gameplay -->
         <Grid Grid.Row="1" Grid.Column="1"
@@ -88,9 +88,9 @@
                     </RichTextBox.Resources>
                 </RichTextBox>
 
-            </Border>
+            </Border> <!-- end Game Messages -->
 
-            <!-- Location information -->
+            <!-- Location Information -->
             <Border Grid.Row="0" Grid.Column="1"
                     BorderBrush="Gainsboro"
                     BorderThickness="1">
@@ -119,9 +119,9 @@
                                TextWrapping="Wrap"/>
                 </Grid>
 
-            </Border>
+            </Border> <!-- end Location Information --> 
 
-            <!-- Monster information -->
+            <!-- Monster Information -->
             <Border Grid.Row="1" Grid.Column="1"
                     BorderBrush="Gainsboro"
                     BorderThickness="1">
@@ -155,9 +155,9 @@
 
                 </Grid>
 
-            </Border>
+            </Border> <!-- end Monster Information -->
 
-        </Grid>
+        </Grid> <!-- end Gameplay -->
 
         <!-- Inventory and Quests -->
         <Grid Grid.Row="2" Grid.Column="0"
@@ -194,9 +194,9 @@
                     </DataGrid>
                 </TabItem>
             </TabControl>
-        </Grid>
+        </Grid> <!-- end Inventory and Quests -->
 
-        <!-- Action controls -->
+        <!-- Action Controls -->
         <Grid Grid.Row="2" Grid.Column="1"
               Background="Lavender">
 
@@ -207,8 +207,35 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="255" />
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions> <!-- end Action Controls -->
 
+            <!-- Combat Controls -->
+            <Grid Grid.Row="0" Grid.Column="0"
+                  Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Grid.Row="0" Grid.Column="0" 
+                    ItemsSource="{Binding CurrentPlayer.Weapons}" 
+                    SelectedItem="{Binding CurrentWeapon}"
+                    DisplayMemberPath="Name"
+                          SelectedValuePath="ID"/>
+                    
+                <Button Grid.Row="0" Grid.Column="2"
+                        Content="Use"
+                        Click="OnClick_AttackMonster"/>
+            </Grid> <!-- end Combat Controls -->
+            
             <!-- Movement Controls -->
             <Grid Grid.Row="0" Grid.Column="1">
 
@@ -250,4 +277,7 @@
         </Grid>
 
     </Grid>
-</Window> <!-- Finished lesson 7.3-->
+</Window> <!-- Line228 This displays a selectable dropdown box. Line229 We'll populate it with the player's Weapons (the ItemSource) -->
+    <!-- Line230 and bind the GameSession's "CurrentWeapon" property to the SelectedItem of the ComboBox use the correct weapon during combat. -->
+    <!-- Line234-236 is the button that will call the combat function "OnClick_AttackMonster"-->
+<!-- Working on lesson 7.4-->
