@@ -280,4 +280,4 @@
 </Window> <!-- Line228 This displays a selectable dropdown box. Line229 We'll populate it with the player's Weapons (the ItemSource) -->
     <!-- Line230 and bind the GameSession's "CurrentWeapon" property to the SelectedItem of the ComboBox use the correct weapon during combat. -->
     <!-- Line234-236 is the button that will call the combat function "OnClick_AttackMonster"-->
-<!-- Working on lesson 7.4-->
+<!-- Working on lesson 7.5-->

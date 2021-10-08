@@ -32,7 +32,7 @@ namespace Engine.Models
             int rewardExperiencePoints, int rewardGold)
         {
             Name = name;
-            ImageName = string.Format("/Engine;component/Images/Monsters/{0}", imageName);
+            ImageName = $"/Engine;component/Images/Monsters/{imageName}";// $ means string interpolation with curly brace pair with the variable name inside of it.  Consistant with string concatenation
             MaximumHitPoints = maximumHitPoints;
             HitPoints = hitPoints;
             MinimumDamage = minimumDamage;// and set the properties with the passed-in parameter values

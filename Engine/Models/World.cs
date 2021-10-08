@@ -16,7 +16,7 @@ namespace Engine.Models
             loc.YCoordinate = yCoordinate;
             loc.Name = name;
             loc.Description = description;
-            loc.ImageName = imageName;
+            loc.ImageName = $"/Engine;component/Images/Locations/{imageName}";// This way it is only in one place, not in every location in the WorldFactory.cs
 
             locations.Add(loc);
         }

@@ -10,14 +10,13 @@ namespace WPFUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GameSession gameSession; // Declare a private variable
-        
-        public MainWindow()
+        private readonly GameSession gameSession = new GameSession(); // readonly means the variable, gameSession, can only be set equal to something here 
+                                 // where its declared on line 13 or inside a constructor. Not needed but protects us from accidently setting the value somewhere else.
+
+        public MainWindow()// MainWindow constructor
         {
             InitializeComponent();
-            
-            gameSession = new GameSession();
-            
+           
             gameSession.OnMessageRaised += OnGameMessageRaised;
             
             DataContext = gameSession;
