@@ -12,8 +12,9 @@ namespace Engine.ViewModels
 
         #region Properties
 
-        private Location currentLocation;
-        private Monster currentMonster;
+        private Location currentLocation;// Backing variable
+        private Monster currentMonster;// Backing variable
+        private Trader currentTrader;// Backing variable
 
         public World CurrentWorld { get; set; }
         public Player CurrentPlayer { get; set; } // Player was not found, had to add a using statement to fix.
@@ -34,6 +35,8 @@ namespace Engine.ViewModels
                 CompleteQuestsAtLocation();
                 GivePlayerQuestsAtLocation();
                 GetMonsterAtLocation();
+
+                currentTrader = CurrentLocation.TraderHere;// Sets currentTrader when player moves to new location
             }
         }
 
@@ -55,6 +58,18 @@ namespace Engine.ViewModels
             }
         }
         
+        public Trader CurrentTrader// Add new property CurrentTrader
+        {
+            get { return currentTrader; }
+            set
+            {
+                currentTrader = value;
+
+                OnPropertyChanged(nameof(CurrentTrader));
+                OnPropertyChanged(nameof(HasTrader));
+            }
+        }
+
         public Weapon CurrentWeapon { get; set; }// Add CurrentWeapon property
 
         public bool HasLocationToNorth =>
@@ -70,7 +85,9 @@ namespace Engine.ViewModels
                 CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;// Converted to a lambda. This doesn’t change the code. But, it is a little easier to read
 
         public bool HasMonster => CurrentMonster != null; // Lets us know if the location has a monster.
-                           // =>, called Lambda, is an expression body. Same as saying return whatever the calculation is. In this case, returns CurrentMonster property not equal to null
+                                                          // =>, called Lambda, is an expression body. Same as saying return whatever the calculation is. In this case, returns CurrentMonster property not equal to null
+        public bool HasTrader => CurrentTrader != null;// Create boolean property
+        // HasTrader displays the 'Trade' button if at location with a CurrentTrader
         #endregion Properties
 
         public GameSession() // Constructor
@@ -210,7 +227,7 @@ namespace Engine.ViewModels
         {
             if (CurrentWeapon == null)// Lines167-171, we check if there is no weapon selected
             {
-                RaiseMessage("You must slect a weapon, to attack.");
+                RaiseMessage("You must select a weapon, to attack.");
                 return;
             }
 

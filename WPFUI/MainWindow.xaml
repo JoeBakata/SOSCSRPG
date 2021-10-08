@@ -261,6 +261,10 @@
                         Click="OnClick_MoveWest"
                         Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}"
                         Content="West"/>
+                <Button Grid.Row="1" Grid.Column="1" 
+                        Height="25" Width="65" Margin="10"
+                        Visibility="{Binding HasTrader, Converter={StaticResource BooleanToVisibility}}"
+                        Content="Trade"/>
                 <Button Grid.Row="1" Grid.Column="2"
                         Height="25" Width="65" Margin="10"
                         Click="OnClick_MoveEast"
@@ -277,7 +281,7 @@
         </Grid>
 
     </Grid>
-</Window> <!-- Line228 This displays a selectable dropdown box. Line229 We'll populate it with the player's Weapons (the ItemSource) -->
-    <!-- Line230 and bind the GameSession's "CurrentWeapon" property to the SelectedItem of the ComboBox use the correct weapon during combat. -->
-    <!-- Line234-236 is the button that will call the combat function "OnClick_AttackMonster"-->
-<!-- Working on lesson 7.5-->
+</Window>
+<!-- Line264 add Trade button -->
+<!-- Line266 Visiblility based on Boolean HasTrader -->
+<!-- Working on lesson 9.1-->
