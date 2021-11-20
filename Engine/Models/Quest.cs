@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Engine.Models
 {
     public class Quest
     {// Added set; to every property that did not have one, pretty sure does not work without the set;
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public int ID { get; }
+        public string Name { get; }
+        public string Description { get; }
 
-        public List<ItemQuantity> ItemsToComplete { get; set; }
+        public List<ItemQuantity> ItemsToComplete { get; }
 
-        public int RewardExperiencePoints { get; set; }
-        public int RewardGold { get; set; }
-        public List<ItemQuantity> RewardItems { get; set; }
+        public int RewardExperiencePoints { get; }
+        public int RewardGold { get; }
+        public List<ItemQuantity> RewardItems { get; }
 
         public Quest(int id, string name, string description, List<ItemQuantity> itemsToComplete,
                      int rewardExperiencePoints, int rewardGold, List<ItemQuantity> rewardItems)

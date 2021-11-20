@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Engine.Models
 {
@@ -11,14 +7,8 @@ namespace Engine.Models
         private List<Location> locations = new List<Location>();
         internal void AddLocation(int xCoordinate, int yCoordinate, string name, string description, string imageName)
         {
-            Location loc = new Location();
-            loc.XCoordinate = xCoordinate;
-            loc.YCoordinate = yCoordinate;
-            loc.Name = name;
-            loc.Description = description;
-            loc.ImageName = $"/Engine;component/Images/Locations/{imageName}";// This way it is only in one place, not in every location in the WorldFactory.cs
-
-            locations.Add(loc);
+            locations.Add(new Location(xCoordinate, yCoordinate, name, description, $"/Engine;component/Images/Locations/{imageName}"));
+            //loc.ImageName = $"/Engine;component/Images/Locations/{imageName}";// This way it is only in one place, not in every location in the WorldFactory.cs
         }
 
         public Location LocationAt(int xCoordinate, int yCoordinate)

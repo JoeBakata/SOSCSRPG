@@ -1,23 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Engine.Models
+﻿namespace Engine.Models
 {
-    public class QuestStatus
+    public class QuestStatus : BaseNotificationClass
     {
-        public Quest PlayerQuest { get; set; }// added set; Guessing will not work without it
-        public bool IsCompleted { get; set; }// added set; to get this working correctly
+        private bool isCompleted;
+
+        public Quest PlayerQuest { get; }// added set; Guessing will not work without it
+        public bool IsCompleted
+        {
+            get { return isCompleted; }
+            set
+            {
+                isCompleted = value;
+                OnPropertyChanged();
+            }
+        }
 
         public QuestStatus(Quest quest)
         {
             PlayerQuest = quest;
             IsCompleted = false;
         }
-
-
-
     }
 }
