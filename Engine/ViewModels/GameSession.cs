@@ -35,8 +35,8 @@ namespace Engine.ViewModels
                 CompleteQuestsAtLocation();
                 GivePlayerQuestsAtLocation();
                 GetMonsterAtLocation();
-
-                currentTrader = CurrentLocation.TraderHere;// Sets currentTrader when player moves to new location
+                // Trade button did not show because CurrentTrader below was currentTrader. Fixed
+                CurrentTrader = CurrentLocation.TraderHere;// Sets currentTrader when player moves to new location
             }
         }
 
