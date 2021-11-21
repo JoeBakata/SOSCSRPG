@@ -174,7 +174,8 @@
                                                 Width="*"/>
                             <DataGridTextColumn Header="Qty"
                                                 IsReadOnly="True"
-                                                Width="Auto"/>
+                                                Width="Auto"
+                                                Binding="{Binding Quantity}"/>
                             <DataGridTextColumn Header="Price"
                                                 Binding="{Binding Item.Price}"
                                                 Width="Auto"/>

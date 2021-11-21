@@ -64,7 +64,7 @@ namespace Engine.Models
                 OnPropertyChanged();
             }
         }
-        public ObservableCollections<GameItem> Inventory { get; }
+        public ObservableCollection<GameItem> Inventory { get; }
 
         public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; }
 
@@ -86,7 +86,7 @@ namespace Engine.Models
             Gold = gold;
             Level = level;
 
-            Inventory = new ObservableCollections<GameItem>();
+            Inventory = new ObservableCollection<GameItem>();
             GroupedInventory = new ObservableCollection<GroupedInventoryItem>();
         }
 
