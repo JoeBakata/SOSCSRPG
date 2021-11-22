@@ -97,7 +97,7 @@ namespace Engine.ViewModels
             }
         }
 
-        public Weapon CurrentWeapon { get; set; }// Add CurrentWeapon property
+        public GameItem CurrentWeapon { get; set; }// Add CurrentWeapon property
 
         public bool HasLocationToNorth =>
                 CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;// Converted to a lambda. This doesn’t change the code. But, it is a little easier to read
