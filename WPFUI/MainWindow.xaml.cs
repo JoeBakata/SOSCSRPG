@@ -12,7 +12,6 @@ namespace WPFUI
     {
         private readonly GameSession gameSession = new GameSession(); // readonly means the variable, gameSession, can only be set equal to something here 
                                  // where its declared on line 13 or inside a constructor. Not needed but protects us from accidently setting the value somewhere else.
-
         public MainWindow()// MainWindow constructor
         {
             InitializeComponent();
@@ -45,6 +44,11 @@ namespace WPFUI
         private void OnClick_AttackMonster(object sender, RoutedEventArgs e)// Lines46 through 49, a new function to attack the monster (OnClick_AttackMonster)
         {
             gameSession.AttackCurrentMonster();// Calls the AttackCurrentMonster function we will create next in the GameSession class(GameSession.cs)
+        }
+        
+        private void OnClick_UseCurrentConsumable(object sender, RoutedEventArgs e)
+        {
+            gameSession.UseCurrentConsumable();
         }
         private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
         {

@@ -129,6 +129,8 @@ namespace Engine.ViewModels
                 CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1001));// check the player’s Weapons property. If there are not any objects in that property,
             }                                                                      // we will get a Pointy Stick (item 1001) from the ItemFactory, and give it to the player
 
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(2001));
+
             CurrentWorld = WorldFactory.CreateWorld();
 
             CurrentLocation = CurrentWorld.LocationAt(0, 0);
@@ -266,6 +268,11 @@ namespace Engine.ViewModels
                 // If monster is still alive, let the monster attack
                 CurrentMonster.UseCurrentWeaponOn(CurrentPlayer);
             }
+        }
+
+        public void UseCurrentConsumable()
+        {
+            CurrentPlayer.UseCurrentConsumable();// Called a helper function
         }
 
         private void OnCurrentPlayerPerformedAction(object sender, string result)
