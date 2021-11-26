@@ -311,6 +311,7 @@ namespace Engine.ViewModels
         private void OnCurrentPlayerLeveledUp(object sender, System.EventArgs eventArgs)
         {
             RaiseMessage($"You are now level {CurrentPlayer.Level}!");
+            RaiseMessage($"Your new Maximum HitPoints are {CurrentPlayer.MaximumHitPoints}");
         }
 
         private void RaiseMessage(string message)
