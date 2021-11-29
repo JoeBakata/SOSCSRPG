@@ -130,6 +130,7 @@ namespace Engine.ViewModels
             }                                                                      // we will get a Pointy Stick (item 1001) from the ItemFactory, and give it to the player
 
             CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(2001));
+            CurrentPlayer.LearnRecipe(RecipeFactory.RecipeByID(1));
 
             CurrentWorld = WorldFactory.CreateWorld();
 
