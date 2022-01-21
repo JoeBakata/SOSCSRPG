@@ -246,6 +246,11 @@ namespace Engine.ViewModels
 
         public void AttackCurrentMonster()// Function to attack current monster
         {
+            if (CurrentMonster == null)
+            {
+                return;
+            }
+
             if (CurrentPlayer.CurrentWeapon == null)// Lines167-171, we check if there is no weapon selected
             {
                 RaiseMessage("You must select a weapon, to attack.");
@@ -268,7 +273,10 @@ namespace Engine.ViewModels
 
         public void UseCurrentConsumable()
         {
-            CurrentPlayer.UseCurrentConsumable();// Called a helper function
+            if (CurrentPlayer.CurrentConsumable != null)
+            {
+                CurrentPlayer.UseCurrentConsumable();// Called a helper function
+            }
         }
 
         public void CraftItemUsing(Recipe recipe)

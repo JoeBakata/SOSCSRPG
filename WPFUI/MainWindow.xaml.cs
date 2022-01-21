@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Input;
 using Engine.EventArgs;
 using Engine.Models;
 using Engine.ViewModels;
@@ -12,10 +15,14 @@ namespace WPFUI
     public partial class MainWindow : Window
     {
         private readonly GameSession gameSession = new GameSession(); // readonly means the variable, gameSession, can only be set equal to something here 
-                                 // where its declared on line 13 or inside a constructor. Not needed but protects us from accidently setting the value somewhere else.
+                                                                      // where its declared on line 13 or inside a constructor. Not needed but protects us from accidently setting the value somewhere else.
+        private readonly Dictionary<Key, Action> _userInputActions = new Dictionary<Key, Action>();
+       
         public MainWindow()// MainWindow constructor
         {
             InitializeComponent();
+
+            InitializeUserInputActions();
            
             gameSession.OnMessageRaised += OnGameMessageRaised;
             
@@ -70,5 +77,25 @@ namespace WPFUI
             Recipe recipe = ((FrameworkElement)sender).DataContext as Recipe;
             gameSession.CraftItemUsing(recipe);
         }
+
+
+        private void InitializeUserInputActions()
+        {
+            _userInputActions.Add(Key.W, () => gameSession.MoveNorth());
+            _userInputActions.Add(Key.A, () => gameSession.MoveWest());
+            _userInputActions.Add(Key.S, () => gameSession.MoveSouth());
+            _userInputActions.Add(Key.D, () => gameSession.MoveEast());
+            _userInputActions.Add(Key.Z, () => gameSession.AttackCurrentMonster());
+            _userInputActions.Add(Key.C, () => gameSession.UseCurrentConsumable());
+        }
+
+        private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (_userInputActions.ContainsKey(e.Key))
+            {
+                _userInputActions[e.Key].Invoke();
+            }
+        }
     }
 }
+
